@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const port = 3000
 
 const itemRoutes = require('./routes/productoRoutes') // Import the item routes
+const clienteRoutes = require('./routes/ClienteRoutes') // Import the item routes
 
 const app = express(); // Create an Express application
 app.use(cors()); // Enable CORS for all routes
@@ -23,6 +24,7 @@ mongoose.connect('mongodb://localhost:27017/miBaseDeDatos', {
 
 // Use the item routes for all requests to /api/items
 app.use('/api/items', itemRoutes)
+app.use('/api/clientes', clienteRoutes)
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
